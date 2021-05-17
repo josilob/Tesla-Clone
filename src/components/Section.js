@@ -17,7 +17,7 @@ function Section({
 			<Buttons>
 				<ButtonGroup>
 					<LeftBtn>{leftBtnText}</LeftBtn>
-					<RightBtn>{rightBtnText}</RightBtn>
+					{rightBtnText && <RightBtn>{rightBtnText}</RightBtn>}
 				</ButtonGroup>
 				<DownArrow src='/images/down-arrow.svg' />
 			</Buttons>
