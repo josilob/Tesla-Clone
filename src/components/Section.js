@@ -8,10 +8,13 @@ function Section() {
 				<h1>Model S</h1>
 				<p>Order Online for Touchless Delivery</p>
 			</ItemText>
-			<ButtonGroup>
-				<LeftBtn>Custom Order</LeftBtn>
-				<RightBtn>Existing Inventory</RightBtn>
-			</ButtonGroup>
+			<Buttons>
+				<ButtonGroup>
+					<LeftBtn>Custom Order</LeftBtn>
+					<RightBtn>Existing Inventory</RightBtn>
+				</ButtonGroup>
+				<DownArrow src='/images/down-arrow.svg' />
+			</Buttons>
 		</Wrap>
 	);
 }
@@ -39,6 +42,9 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
 	display: flex;
 	margin-bottom: 30px;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 const LeftBtn = styled.button`
@@ -54,5 +60,22 @@ const LeftBtn = styled.button`
 	text-transform: uppercase;
 	font-size: 12px;
 	cursor: pointer;
+	margin: 8px;
 `;
-const RightBtn = styled(LeftBtn)``;
+const RightBtn = styled(LeftBtn)`
+	background: #fff;
+	opacity: 0.65;
+	color: #000;
+`;
+
+const DownArrow = styled.img`
+	margin-top: 20px;
+	height: 40px;
+	overflow-x: hidden;
+	animation: animateDown infinite 1.5s;
+`;
+
+const Buttons = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
