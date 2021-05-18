@@ -23,6 +23,50 @@ function Header() {
 				</a>
 				<CustomMenu />
 			</RightMenu>
+			<BurgerNav>
+				<li>
+					<a href='#'>Existing Inventory</a>
+				</li>
+				<li>
+					<a href='#'>Used Inventory</a>
+				</li>
+				<li>
+					<a href='#'>Trade-in</a>
+				</li>
+				<li>
+					<a href='#'>Cybertruck</a>
+				</li>
+				<li>
+					<a href='#'>Roadster</a>
+				</li>
+				<li>
+					<a href='#'>Semi</a>
+				</li>
+				<li>
+					<a href='#'>Charging </a>
+				</li>
+				<li>
+					<a href='#'>Powerwall</a>
+				</li>
+				<li>
+					<a href='#'>Commercial Energy</a>
+				</li>
+				<li>
+					<a href='#'>Utilities</a>
+				</li>
+				<li>
+					<a href='#'>Test Drive</a>
+				</li>
+				<li>
+					<a href='#'>Find Us</a>
+				</li>
+				<li>
+					<a href='#'>Support</a>
+				</li>
+				<li>
+					<a href='#'>United States</a>
+				</li>
+			</BurgerNav>
 		</Container>
 	);
 }
@@ -39,6 +83,7 @@ const Container = styled.div`
 	top: 0;
 	left: 0;
 	right: 0;
+	z-index: 1;
 `;
 
 const Menu = styled.div`
@@ -71,4 +116,25 @@ const RightMenu = styled.div`
 
 const CustomMenu = styled(MenuIcon)`
 	cursor: pointer;
+`;
+
+const BurgerNav = styled.div`
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #fff;
+	width: 300px;
+	z-index: 10;
+	list-style: none;
+	padding: 20px;
+
+	li {
+		padding: 15px 0;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+		a {
+			font-weight: 600;
+		}
+	}
 `;
