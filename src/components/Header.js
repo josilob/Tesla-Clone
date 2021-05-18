@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 function Header() {
+	const [burgerStatus, setBurgerStatus] = useState(false);
 	return (
 		<Container>
 			<a>
 				<img src='/images/logo.svg' alt='' />
 			</a>
+
 			<Menu>
 				<a href='#'>Model S</a>
 				<a href='#'>Model 3</a>
 				<a href='#'>Model X</a>
 				<a href='#'>Model Y</a>
 			</Menu>
+
 			<RightMenu>
 				<a href='#' alt='#'>
 					Shop
@@ -21,9 +25,21 @@ function Header() {
 				<a href='#' alt='#'>
 					Tesla Account
 				</a>
-				<CustomMenu />
+				<CustomMenu
+					onClick={() => {
+						setBurgerStatus(true);
+					}}
+				/>
 			</RightMenu>
-			<BurgerNav>
+
+			<BurgerNav show={burgerStatus}>
+				<CloseWrapper>
+					<CustomClose
+						onClick={() => {
+							setBurgerStatus(false);
+						}}
+					/>
+				</CloseWrapper>
 				<li>
 					<a href='#'>Existing Inventory</a>
 				</li>
@@ -128,6 +144,8 @@ const BurgerNav = styled.div`
 	z-index: 10;
 	list-style: none;
 	padding: 20px;
+	transform: ${(props) => (props.show ? `translateX(0)` : `translateX(100%)`)};
+	transition: transform 0.25s ease-in-out;
 
 	li {
 		padding: 15px 0;
@@ -137,4 +155,13 @@ const BurgerNav = styled.div`
 			font-weight: 600;
 		}
 	}
+`;
+
+const CustomClose = styled(CloseIcon)`
+	cursor: pointer;
+`;
+
+const CloseWrapper = styled.div`
+	display: flex;
+	justify-content: flex-end;
 `;
